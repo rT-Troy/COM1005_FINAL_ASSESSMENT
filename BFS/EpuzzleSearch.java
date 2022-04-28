@@ -9,6 +9,7 @@ public class EpuzzleSearch extends Search {
             new HashMap<Integer,Integer>();
 
     //constructor
+
     public EpuzzleSearch(int[] thisNumArr){
         for (int i = 0; i < thisNumArr.length; i++) {
             ePuzzleList.put(i,thisNumArr[i]);

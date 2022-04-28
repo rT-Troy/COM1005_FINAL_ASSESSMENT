@@ -32,12 +32,12 @@ public class EpuzzleState extends SearchState{
     }
 
 
-    @Override //check if every tile match the target order
+    @Override
     boolean goalPredicate(Search searcher) {
         boolean result = true;
         EpuzzleSearch esearcher = (EpuzzleSearch) searcher;
         HashMap<Integer,Integer> searList = esearcher.getEPuzzleList();
-        for (int i = 0; i <searList.size()-1; i++) {
+        for (int i = 0; i <searList.size()-1; i++) {    //check if every tile match the target order
             if(searList.get(i) != i+1) {
                 result = false;
                 break;
@@ -48,6 +48,8 @@ public class EpuzzleState extends SearchState{
 
     @Override
     ArrayList<SearchState> getSuccessors(Search searcher) {
+        EpuzzleSearch esearcher = (EpuzzleSearch) searcher;
+
         return null;
     }
 
