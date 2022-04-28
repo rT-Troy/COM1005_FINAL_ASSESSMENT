@@ -9,6 +9,10 @@ public class EpuzzleSearch extends Search {
             new HashMap<Integer,Integer>();
 
     //constructor
+    public EpuzzleSearch(int sn, int tn){
+        serNum = sn;
+        thisNum = tn;
+    }
 
     public EpuzzleSearch(int[] thisNumArr){
         for (int i = 0; i < thisNumArr.length; i++) {
@@ -28,13 +32,19 @@ public class EpuzzleSearch extends Search {
         return ePuzzleList;
     }
 
-
-
-
-
-
-
-
+//    @Override
+//    public String toString() {
+//        StringBuffer sb = new StringBuffer();
+//        for (int i = 0; i < ePuzzleList.size(); i++) {
+//            sb.append(ePuzzleList.get(i));
+//            sb.append(" ");
+//            if ((i+1)%3==0){
+//                System.getProperty("line.separator");
+//            }
+//        }
+//        String st = sb.toString();
+//        return st;
+//    }
 }
 
 

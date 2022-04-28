@@ -49,12 +49,78 @@ public class EpuzzleState extends SearchState{
     @Override
     ArrayList<SearchState> getSuccessors(Search searcher) {
         EpuzzleSearch esearcher = (EpuzzleSearch) searcher;
+        ArrayList<EpuzzleState> epslist = new ArrayList<EpuzzleState>();
+        ArrayList<SearchState> slist = new ArrayList<SearchState>();
 
-        return null;
+
+
+
+
+//        //slide tile 1 and 3 to 0, and every tile follow the rule
+//        if (esearcher.getSerNum()==0){
+//            epslist.add(new EpuzzleState(0,esearcher.getEPuzzleList().get(1)));
+//            epslist.add(new EpuzzleState(0,esearcher.getEPuzzleList().get(3)));
+//        }
+//        if (esearcher.getSerNum()==1){
+//            epslist.add(new EpuzzleState(1,esearcher.getEPuzzleList().get(0)));
+//            epslist.add(new EpuzzleState(1,esearcher.getEPuzzleList().get(2)));
+//            epslist.add(new EpuzzleState(1,esearcher.getEPuzzleList().get(4)));
+//        }
+//        if (esearcher.getSerNum()==2){
+//            epslist.add(new EpuzzleState(2,esearcher.getEPuzzleList().get(1)));
+//            epslist.add(new EpuzzleState(2,esearcher.getEPuzzleList().get(5)));
+//        }
+//        if (esearcher.getSerNum()==3){
+//            epslist.add(new EpuzzleState(3,esearcher.getEPuzzleList().get(0)));
+//            epslist.add(new EpuzzleState(3,esearcher.getEPuzzleList().get(4)));
+//            epslist.add(new EpuzzleState(3,esearcher.getEPuzzleList().get(6)));
+//        }
+//        if (esearcher.getSerNum()==4){
+//            epslist.add(new EpuzzleState(4,esearcher.getEPuzzleList().get(1)));
+//            epslist.add(new EpuzzleState(4,esearcher.getEPuzzleList().get(3)));
+//            epslist.add(new EpuzzleState(4,esearcher.getEPuzzleList().get(5)));
+//            epslist.add(new EpuzzleState(4,esearcher.getEPuzzleList().get(7)));
+//        }
+//        if (esearcher.getSerNum()==5){
+//            epslist.add(new EpuzzleState(5,esearcher.getEPuzzleList().get(2)));
+//            epslist.add(new EpuzzleState(5,esearcher.getEPuzzleList().get(4)));
+//            epslist.add(new EpuzzleState(5,esearcher.getEPuzzleList().get(8)));
+//        }
+//        if (esearcher.getSerNum()==6){
+//            epslist.add(new EpuzzleState(6,esearcher.getEPuzzleList().get(3)));
+//            epslist.add(new EpuzzleState(6,esearcher.getEPuzzleList().get(7)));
+//        }
+//        if (esearcher.getSerNum()==7){
+//            epslist.add(new EpuzzleState(7,esearcher.getEPuzzleList().get(4)));
+//            epslist.add(new EpuzzleState(7,esearcher.getEPuzzleList().get(6)));
+//            epslist.add(new EpuzzleState(7,esearcher.getEPuzzleList().get(8)));
+//        }
+//        if (esearcher.getSerNum()==8){
+//            epslist.add(new EpuzzleState(8,esearcher.getEPuzzleList().get(5)));
+//            epslist.add(new EpuzzleState(8,esearcher.getEPuzzleList().get(7)));
+//        }
+//
+//        for(EpuzzleState es: epslist) {
+//            slist.add((SearchState) es);
+//        }
+
+
+        return slist;
     }
 
     @Override
     boolean sameState(SearchState n2) {
-        return false;
+        EpuzzleState eps = (EpuzzleState) n2;
+        return  (serValue == eps.getSerValue() && thisValue == eps.getThisValue());
+
+    }
+
+    @Override
+    public String toString() {
+
+        return "EpuzzleState= " +
+                "serValue=" + serValue +
+                ", thisValue=" + thisValue +
+                '}';
     }
 }
