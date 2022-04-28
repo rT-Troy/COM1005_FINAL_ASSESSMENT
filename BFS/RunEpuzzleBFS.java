@@ -13,7 +13,9 @@ public class RunEpuzzleBFS {
 //        System.out.println(initState.getSerValue());
 //        System.out.println(initState.getThisValue());
 
-
+//        String resb = searcher.runSearch(initState, "breadthFirst");
+//        String resd = searcher.runSearch(initState, "depthFirst");
+//        System.out.println(resb);
     }
 }
 
