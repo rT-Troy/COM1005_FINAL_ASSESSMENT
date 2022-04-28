@@ -9,8 +9,9 @@ public class RunEpuzzleBFS {
         EpuzzleState initState = new EpuzzleState(searcher1.getEPuzzleList());
 
 
-        System.out.println(searcher1.getEPuzzleList());
-
+//        System.out.println(searcher1.getEPuzzleList());
+//        System.out.println(initState.getSerValue());
+//        System.out.println(initState.getThisValue());
 
 
     }

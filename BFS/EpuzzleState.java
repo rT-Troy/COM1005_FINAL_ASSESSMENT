@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class EpuzzleState extends SearchState{
 
@@ -6,14 +7,28 @@ public class EpuzzleState extends SearchState{
     private int thisValue;
 
     public EpuzzleState(int sva, int tva){
-        this.serValue = sva;
-        this.thisValue = tva;
+        serValue = sva;
+        thisValue = tva;
     }
 
-    //find initState position
-    public EpuzzleState(int[] list){
-        this.thisValue = tva;
-        this.serValue =
+    //find the initState position
+    public EpuzzleState(HashMap<Integer,Integer> list){
+        int num = 0;
+        for(int x : list.keySet()){
+            if (list.get(x).equals(0)){
+                serValue = num;
+                thisValue = list.get(num);
+            }
+            num++;
+        }
+    }
+
+    public int getSerValue() {
+        return serValue;
+    }
+
+    public int getThisValue() {
+        return thisValue;
     }
 
 
