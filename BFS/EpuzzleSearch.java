@@ -4,22 +4,29 @@ import java.util.HashMap;
 public class EpuzzleSearch extends Search {
 
     private int[] puzzleList;
+    private int[] goal;
+
 
 
     //constructor
-    public EpuzzleSearch(int[] arr){
+    public EpuzzleSearch(int[] arr,int[] g){
         puzzleList = arr;
+        goal = g;
     }
 
     public int[] getPuzzleList() {
         return puzzleList;
     }
 
+    public int[] getGOAL() {
+        return goal;
+    }
+
     public int getPuzzIndex(int serNum){
         return puzzleList[serNum];
     }
 
-    public int getPuzzSerNum(int Index){
+    public int getStart(int Index){
         int n=-1;
         for (int i = 0; i < puzzleList.length; i++) {
             if(puzzleList[i] == Index){
@@ -30,9 +37,12 @@ public class EpuzzleSearch extends Search {
         return n;
     }
 
+    @Override
+    public String toString() {
+        return getPuzzleList().toString();
+    }
 
-
-//        @Override
+    //        @Override
 //    public String toString() {
 //        StringBuffer sb = new StringBuffer();
 //        for (int i = 0; i < getPuzzleList().size(); i++) {

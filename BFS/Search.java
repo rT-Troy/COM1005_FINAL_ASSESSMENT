@@ -42,6 +42,7 @@ public abstract class Search {
 		while (!open.isEmpty()) {
 
 			// print contents of open
+			System.out.println("=========================== \n");
 			System.out.println("iteration no " + iterationCount);
 			System.out.println("open is");
 			for (SearchNode nn : open) {
