@@ -24,17 +24,17 @@ public class EpuzzleState extends SearchState{
         return ePuzzleList;
     }
 
-    public int getSerNumber(int[] list, int Index){
-        list = getePuzzleList();
-        int n=-1;
-        for (int i = 0; i < list.length; i++) {
-            if(list[i] == Index){
-                n = i;
-                break;
-            }
-        }
-        return n;
-    }
+//    public int getSerNumber(int[] list, int Index){
+//        list = getePuzzleList();
+//        int n=-1;
+//        for (int i = 0; i < list.length; i++) {
+//            if(list[i] == Index){
+//                n = i;
+//                break;
+//            }
+//        }
+//        return n;
+//    }
 
 
     @Override
@@ -56,46 +56,46 @@ public class EpuzzleState extends SearchState{
 
     @Override
     ArrayList<SearchState> getSuccessors(Search searcher) {
-        EpuzzleSearch ssearcher = (EpuzzleSearch) searcher;
-        int[] arr = ssearcher.getPuzzleList();
         ArrayList<EpuzzleState> epslist = new ArrayList<EpuzzleState>();
         ArrayList<SearchState> sslist = new ArrayList<SearchState>();
 
-        for (int i = 0; i < ePuzzleList.length; i++) {
-            if(i == 0){
-                epslist.add(new EpuzzleState(new int[]{arr[1], arr[0], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[3], arr[1], arr[2], arr[0], arr[4], arr[5], arr[6], arr[7], arr[8]}));
-            } else if(i == 1){
-                epslist.add(new EpuzzleState(new int[]{arr[1], arr[0], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[2], arr[1], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[4], arr[2], arr[3], arr[1], arr[5], arr[6], arr[7], arr[8]}));
-            } else if(i == 2){
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[2], arr[1], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[5], arr[3], arr[4], arr[2], arr[6], arr[7], arr[8]}));
-            } else if(i == 3){
-                epslist.add(new EpuzzleState(new int[]{arr[3], arr[1], arr[2], arr[0], arr[4], arr[5], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[4], arr[3], arr[5], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[6], arr[4], arr[5], arr[3], arr[7], arr[8]}));
-            } else if(i == 4){
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[4], arr[2], arr[3], arr[1], arr[5], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[4], arr[3], arr[5], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[5], arr[4], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[7], arr[5], arr[6], arr[4], arr[8]}));
-            } else if(i == 5){
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[5], arr[3], arr[4], arr[2], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[5], arr[4], arr[6], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[4], arr[8], arr[6], arr[7], arr[5]}));
-            } else if(i == 6){
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[6], arr[4], arr[5], arr[3], arr[7], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[7], arr[6], arr[8]}));
-            } else if(i == 7){
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[7], arr[5], arr[6], arr[4], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[7], arr[6], arr[8]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[8], arr[7]}));
-            } else if(i == 8) {
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[4], arr[8], arr[6], arr[7], arr[5]}));
-                epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[8], arr[7]}));
-            }
+
+
+//        for (int i = 0; i < ePuzzleList.length; i++) {
+//            if(i == 0){
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//            } else if(i == 1){
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//            } else if(i == 2){
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//            } else if(i == 3){
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//            } else if(i == 4){
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//            } else if(i == 5){
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[8], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[5]}));
+//            } else if(i == 6){
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//            } else if(i == 7){
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[8]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[8], ((EpuzzleSearch) searcher).getPuzzleList()[7]}));
+//            } else if(i == 8) {
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[8], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[7], ((EpuzzleSearch) searcher).getPuzzleList()[5]}));
+//                epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[0], ((EpuzzleSearch) searcher).getPuzzleList()[1], ((EpuzzleSearch) searcher).getPuzzleList()[2], ((EpuzzleSearch) searcher).getPuzzleList()[3], ((EpuzzleSearch) searcher).getPuzzleList()[4], ((EpuzzleSearch) searcher).getPuzzleList()[5], ((EpuzzleSearch) searcher).getPuzzleList()[6], ((EpuzzleSearch) searcher).getPuzzleList()[8], ((EpuzzleSearch) searcher).getPuzzleList()[7]}));
+//            }
 
 
 
@@ -136,7 +136,7 @@ public class EpuzzleState extends SearchState{
 //            epslist.add(new EpuzzleState(new int[]{arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[8], arr[7]}));
 //        }
         for(EpuzzleState es : epslist){
-            sslist.add((SearchState) es);
+            sslist.add(es);
         }
 
         return sslist;
@@ -195,7 +195,6 @@ public class EpuzzleState extends SearchState{
     boolean sameState(SearchState n2) {
         EpuzzleState eqs = (EpuzzleState) n2;
         return Arrays.equals(ePuzzleList,eqs.getePuzzleList());
-//        return (Arrays.equals(ePuzzleList,eqs.getePuzzleList()));
     }
 
 
@@ -239,6 +238,14 @@ public class EpuzzleState extends SearchState{
 
     @Override
     public String toString() {
+//        StringBuffer sb = new StringBuffer();
+//        sb.append("\r\n");
+//        for (int i = 0; i < 9; i++) {
+//            sb.append(getePuzzleList()[i]);
+//        }
+//        String st = sb.toString();
+//        return st;
+
         StringBuffer sb = new StringBuffer();
         sb.append("\r\n");
         for (int i = 0; i < 9; i++) {
