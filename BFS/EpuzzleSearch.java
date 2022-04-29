@@ -5,6 +5,7 @@ public class EpuzzleSearch extends Search {
 
     private int[] puzzleList;
 
+
     //constructor
     public EpuzzleSearch(int[] arr){
         puzzleList = arr;
@@ -12,6 +13,21 @@ public class EpuzzleSearch extends Search {
 
     public int[] getPuzzleList() {
         return puzzleList;
+    }
+
+    public int getPuzzIndex(int serNum){
+        return puzzleList[serNum];
+    }
+
+    public int getPuzzSerNum(int Index){
+        int n=-1;
+        for (int i = 0; i < puzzleList.length; i++) {
+            if(puzzleList[i] == Index){
+                n = i;
+                break;
+            }
+        }
+        return n;
     }
 
 

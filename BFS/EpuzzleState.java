@@ -7,7 +7,11 @@ import java.util.Iterator;
 public class EpuzzleState extends SearchState{
 
     private int[] ePuzzleList;
+    private final int[] GOAL = {1,2,3,4,5,6,7,0};
 
+    public EpuzzleState(int[] epList){
+        ePuzzleList = epList;
+    }
     public EpuzzleState(EpuzzleSearch searcher){
         ePuzzleList = searcher.getPuzzleList();
 //        for (int i = 0; i < searcher.getPuzzleList().length; i++) {
@@ -17,10 +21,6 @@ public class EpuzzleState extends SearchState{
 //        }
     }
 
-    public EpuzzleState(int[] epList){
-        ePuzzleList = epList;
-    }
-
     public int[] getePuzzleList() {
         return ePuzzleList;
     }
@@ -28,74 +28,65 @@ public class EpuzzleState extends SearchState{
 
     @Override
     boolean goalPredicate(Search searcher) {
-        boolean result = true;
-        for (int i = 0; i < ePuzzleList.length-1; i++) {
-            if (ePuzzleList[i] != i+1){
-                result = false;
-                break;
-            }
-        }
-        return result;
+
+        return (Arrays.equals(getePuzzleList(),GOAL));
+
+//        boolean result = true;
+//        for (int i = 0; i < ePuzzleList.length-1; i++) {
+//            if (ePuzzleList[i] != i+1){
+//                result = false;
+//                break;
+//            }
+//        }
+//        return result;
     }
 
     @Override
     ArrayList<SearchState> getSuccessors(Search searcher) {
         EpuzzleSearch ssearcher = (EpuzzleSearch) searcher;
-        int[] list =ssearcher.getPuzzleList();
         ArrayList<EpuzzleState> epslist = new ArrayList<EpuzzleState>();
         ArrayList<SearchState> sslist = new ArrayList<SearchState>();
 
-
-        int ser = 0;
-        for (int i = 0; i < list.length; i++) {
-            if(list[i] == 0) {
-                ser = i;
-                break;
-            }
-        }
-        boolean x = true;
-        if (list[ser]==0 && x){
-            epslist.add(slide(list,0,1));
-            epslist.add(slide(list,0,3));
-            x = false;
-        }else if (list[ser]==1 && x){
-            epslist.add(slide(list,1,0));
-            epslist.add(slide(list,1,2));
-            epslist.add(slide(list,1,4));
-            x = false;
-        }else if (list[ser]==2 && x){
-            epslist.add(slide(list,2,1));
-            epslist.add(slide(list,2,5));
-            x = false;
-        }else if (list[ser]==3 && x){
-            epslist.add(slide(list,3,0));
-            epslist.add(slide(list,3,4));
-            epslist.add(slide(list,3,6));
-            x = false;
-        }else if (list[ser]==4 && x){
-            epslist.add(slide(list,4,1));
-            epslist.add(slide(list,4,3));
-            epslist.add(slide(list,4,5));
-            epslist.add(slide(list,4,7));
-            x = false;
-        }else if (list[ser]==5 && x){
-            epslist.add(slide(list,5,2));
-            epslist.add(slide(list,5,4));
-            epslist.add(slide(list,5,8));
-            x = false;
-        }else if (list[ser]==6 && x){
-            epslist.add(slide(list,6,3));
-            epslist.add(slide(list,6,7));
-            x = false;
-        }else if (list[ser]==7 && x){
-            epslist.add(slide(list,7,4));
-            epslist.add(slide(list,7,6));
-            epslist.add(slide(list,7,8));
-            x = false;
-        }else if (list[ser]==8 && x) {
-            epslist.add(slide(list,8,5));
-            epslist.add(slide(list,8,7));
-            x = false;
+//        int ser = 0;
+//        for (int i = 0; i < LIST.length; i++) {
+//            if(LIST[i] == 0) {
+//                ser = i;
+//                break;
+//            }
+//        }
+        if (ssearcher.getPuzzSerNum(0)==0){
+            epslist.add(slide(ssearcher.getPuzzleList(),0,1));
+            epslist.add(slide(ssearcher.getPuzzleList(),0,3));
+        }else if (ssearcher.getPuzzSerNum(0)==1){
+            epslist.add(slide(ssearcher.getPuzzleList(),1,0));
+            epslist.add(slide(ssearcher.getPuzzleList(),1,2));
+            epslist.add(slide(ssearcher.getPuzzleList(),1,4));
+        }else if (ssearcher.getPuzzSerNum(0)==2){
+            epslist.add(slide(ssearcher.getPuzzleList(),2,1));
+            epslist.add(slide(ssearcher.getPuzzleList(),2,5));
+        }else if (ssearcher.getPuzzSerNum(0)==3){
+            epslist.add(slide(ssearcher.getPuzzleList(),3,0));
+            epslist.add(slide(ssearcher.getPuzzleList(),3,4));
+            epslist.add(slide(ssearcher.getPuzzleList(),3,6));
+        }else if (ssearcher.getPuzzSerNum(0)==4){
+            epslist.add(slide(ssearcher.getPuzzleList(),4,1));
+            epslist.add(slide(ssearcher.getPuzzleList(),4,3));
+            epslist.add(slide(ssearcher.getPuzzleList(),4,5));
+            epslist.add(slide(ssearcher.getPuzzleList(),4,7));
+        }else if (ssearcher.getPuzzSerNum(0)==5){
+            epslist.add(slide(ssearcher.getPuzzleList(),5,2));
+            epslist.add(slide(ssearcher.getPuzzleList(),5,4));
+            epslist.add(slide(ssearcher.getPuzzleList(),5,8));
+        }else if (ssearcher.getPuzzSerNum(0)==6){
+            epslist.add(slide(ssearcher.getPuzzleList(),6,3));
+            epslist.add(slide(ssearcher.getPuzzleList(),6,7));
+        }else if (ssearcher.getPuzzSerNum(0)==7){
+            epslist.add(slide(ssearcher.getPuzzleList(),7,4));
+            epslist.add(slide(ssearcher.getPuzzleList(),7,6));
+            epslist.add(slide(ssearcher.getPuzzleList(),7,8));
+        }else if (ssearcher.getPuzzSerNum(0)==8) {
+            epslist.add(slide(ssearcher.getPuzzleList(),8,5));
+            epslist.add(slide(ssearcher.getPuzzleList(),8,7));
         }
 
         for(EpuzzleState es : epslist){
