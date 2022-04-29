@@ -32,8 +32,8 @@ public class EpuzzleState extends SearchState{
         }
         ePuzzleMap = map;
         ArrayList<Integer> list = new ArrayList<Integer>();
-        for (int x : map.keySet()){
-            list.add(x);
+        for (int i = 0; i < map.size(); i++) {
+            list.add(map.get(i));
         }
         ePuzzleList = list;
     }
@@ -139,7 +139,10 @@ public class EpuzzleState extends SearchState{
     @Override
     public String toString() {
         return "EpuzzleState{" +
-                "ePuzzleList=" + ePuzzleList +
+                "serValue=" + serValue +
+                ", thisValue=" + thisValue +
+                ", ePuzzleMap=" + ePuzzleMap +
+                ", ePuzzleList=" + ePuzzleList +
                 '}';
     }
 }
