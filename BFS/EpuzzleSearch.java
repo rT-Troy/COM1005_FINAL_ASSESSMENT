@@ -37,10 +37,6 @@ public class EpuzzleSearch extends Search {
         return n;
     }
 
-    @Override
-    public String toString() {
-        return getPuzzleList().toString();
-    }
 
     //        @Override
 //    public String toString() {
