@@ -33,6 +33,8 @@ public class EpuzzleSearch extends Search {
         return puzzleList;
     }
 
+
+
     public ArrayList<Integer> transfer(int sur1, int sur2) {
         HashMap<Integer,Integer> list = puzzleList;
         ArrayList<Integer> arr = new ArrayList<Integer>();
