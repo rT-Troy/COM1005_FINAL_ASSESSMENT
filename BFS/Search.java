@@ -75,7 +75,6 @@ public abstract class Search {
 
 		// get all successor nodes
 		successorNodes = currentNode.getSuccessors(this); // pass search instance
-
 		// filter out unwanted - Dynamic Programming check
 		vetSuccessors();
 

@@ -16,12 +16,21 @@ public class EpuzzleState extends SearchState{
 //        }
     }
 
+    public EpuzzleState(int[] epList){
+        ePuzzleList = epList;
+    }
+
+    public int[] getePuzzleList() {
+        return ePuzzleList;
+    }
+
+
     @Override
     boolean goalPredicate(Search searcher) {
         EpuzzleSearch esearcher = (EpuzzleSearch) searcher;
         boolean result = true;
-        for (int i = 0; i < esearcher.getPuzzleList().length-1; i++) {
-            if (esearcher.getPuzzleList()[i] != 1){
+        for (int i = 0; i < ePuzzleList.length-1; i++) {
+            if (ePuzzleList[i] != i+1){
                 result = false;
                 break;
             }
@@ -31,54 +40,51 @@ public class EpuzzleState extends SearchState{
 
     @Override
     ArrayList<SearchState> getSuccessors(Search searcher) {
-        EpuzzleSearch esearcher = (EpuzzleSearch) searcher;
+        int[] list =((EpuzzleSearch) searcher).getPuzzleList();
         ArrayList<EpuzzleState> epslist = new ArrayList<EpuzzleState>();
         ArrayList<SearchState> sslist = new ArrayList<SearchState>();
+        int ser = -1;
+        for (int i = 0; i < list.length; i++) {
+            if(ePuzzleList[i] == 0) {
+                ser = i;
+                break;
+            }
+        }
 
-        int i = esearcher.getZero(esearcher.getPuzzleList());
-
-            if (esearcher.getPuzzleList()[i]==0){
-                epslist.add(slide(esearcher,0,1));
-                epslist.add(slide(esearcher,0,3));
-            }
-            if (esearcher.getPuzzleList()[i]==1){
-                epslist.add(slide(esearcher,1,0));
-                epslist.add(slide(esearcher,1,2));
-                epslist.add(slide(esearcher,1,4));
-            }
-            if (esearcher.getPuzzleList()[i]==2){
-                epslist.add(slide(esearcher,2,1));
-                epslist.add(slide(esearcher,2,5));
-            }
-            if (esearcher.getPuzzleList()[i]==3){
-                epslist.add(slide(esearcher,3,0));
-                epslist.add(slide(esearcher,3,4));
-                epslist.add(slide(esearcher,3,6));
-            }
-            if (esearcher.getPuzzleList()[i]==4){
-                epslist.add(slide(esearcher,4,1));
-                epslist.add(slide(esearcher,4,3));
-                epslist.add(slide(esearcher,4,5));
-                epslist.add(slide(esearcher,4,7));
-            }
-            if (esearcher.getPuzzleList()[i]==5){
-                epslist.add(slide(esearcher,5,2));
-                epslist.add(slide(esearcher,5,4));
-                epslist.add(slide(esearcher,5,8));
-            }
-            if (esearcher.getPuzzleList()[i]==6){
-                epslist.add(slide(esearcher,6,3));
-                epslist.add(slide(esearcher,6,7));
-            }
-            if (esearcher.getPuzzleList()[i]==7){
-                epslist.add(slide(esearcher,7,4));
-                epslist.add(slide(esearcher,7,6));
-                epslist.add(slide(esearcher,7,8));
-            }
-            if (esearcher.getPuzzleList()[i]==8){
-                epslist.add(slide(esearcher,8,5));
-                epslist.add(slide(esearcher,8,7));
-            }
+        if (list[ser]==0){
+            epslist.add(slide(list,0,1));
+            epslist.add(slide(list,0,3));
+        } else if (list[ser]==1){
+            epslist.add(slide(list,1,0));
+            epslist.add(slide(list,1,2));
+            epslist.add(slide(list,1,4));
+        } else if (list[ser]==2){
+            epslist.add(slide(list,2,1));
+            epslist.add(slide(list,2,5));
+        } else if (list[ser]==3){
+            epslist.add(slide(list,3,0));
+            epslist.add(slide(list,3,4));
+            epslist.add(slide(list,3,6));
+        } else if (list[ser]==4){
+            epslist.add(slide(list,4,1));
+            epslist.add(slide(list,4,3));
+            epslist.add(slide(list,4,5));
+            epslist.add(slide(list,4,7));
+        } else if (list[ser]==5){
+            epslist.add(slide(list,5,2));
+            epslist.add(slide(list,5,4));
+            epslist.add(slide(list,5,8));
+        } else if (list[ser]==6){
+            epslist.add(slide(list,6,3));
+            epslist.add(slide(list,6,7));
+        } else if (list[ser]==7){
+            epslist.add(slide(list,7,4));
+            epslist.add(slide(list,7,6));
+            epslist.add(slide(list,7,8));
+        } else {
+            epslist.add(slide(list,8,5));
+            epslist.add(slide(list,8,7));
+        }
 
         for(EpuzzleState x : epslist){
             sslist.add((SearchState) x);
@@ -90,29 +96,32 @@ public class EpuzzleState extends SearchState{
     @Override
     boolean sameState(SearchState n2) {
         EpuzzleState eqs = (EpuzzleState) n2;
-        return (ePuzzleList == eqs.ePuzzleList);
+        return (Arrays.equals(ePuzzleList,eqs.getePuzzleList()));
     }
 
-    public EpuzzleState slide(EpuzzleSearch searcher, int serNum, int sucSerNum){
-        EpuzzleSearch ssearcher = searcher;
-        int[] list = ssearcher.getPuzzleList();
-        for (int i = 0; i < list.length; i++) {
+
+    public EpuzzleState slide(int[] pzList, int serNum, int sucSerNum){
+        int[] list = pzList;
+        for (int i = 0; i < pzList.length; i++) {
             int x = list[serNum];
             int y = list[sucSerNum];
             list[serNum] = y;
             list[sucSerNum] = x;
         }
-        EpuzzleState theState = new EpuzzleState(new EpuzzleSearch(list));
-        return theState;
+//        EpuzzleSearch theSearch = new EpuzzleSearch(pzList);
+//        EpuzzleState theState = new EpuzzleState(theSearch);
+        return new EpuzzleState(list);
 
     }
+
+
 
     @Override
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("\r\n");
         for (int i = 0; i < 9; i++) {
-            sb.append(ePuzzleList[i]);
+            sb.append(getePuzzleList()[i]);
             if ((i+1)%3==0){
                 sb.append("\r\n");
             }

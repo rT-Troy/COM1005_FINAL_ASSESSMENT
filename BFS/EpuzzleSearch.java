@@ -14,22 +14,13 @@ public class EpuzzleSearch extends Search {
         return puzzleList;
     }
 
-    public int getZero(int[] arr) {
-        int serNum = -1;
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] == 0) {
-                serNum = i;
-                break;
-            }
-        }
-        return serNum;
-    }
 
-    //    @Override
+
+//        @Override
 //    public String toString() {
 //        StringBuffer sb = new StringBuffer();
-//        for (int i = 0; i < ePuzzleList.size(); i++) {
-//            sb.append(ePuzzleList.get(i));
+//        for (int i = 0; i < getPuzzleList().size(); i++) {
+//            sb.append(getPuzzleList().get(i));
 //            sb.append(" ");
 //            if ((i+1)%3==0){
 //                System.getProperty("line.separator");
@@ -38,7 +29,7 @@ public class EpuzzleSearch extends Search {
 //        String st = sb.toString();
 //        return st;
 //    }
-}
+//}
 
 
 
@@ -62,4 +53,4 @@ public class EpuzzleSearch extends Search {
 //
 //    public HashMap<Integer,Integer> getHashList(){
 //        return puzzleList;
-//    }
+    }
