@@ -6,7 +6,7 @@ public class RunEpuzzleBFS {
 
         int[] puzzleArr1 = {1,0,3,4,2,6,7,5,8};
         EpuzzleSearch searcher1 = new EpuzzleSearch(puzzleArr1);
-        SearchState initState = (SearchState) new EpuzzleState(searcher1.getEPuzzleList());
+        SearchState initState = (SearchState) new EpuzzleState(searcher1);
         String resb = searcher1.runSearch(initState, "breadthFirst");
         System.out.println(resb);
 

@@ -3,60 +3,26 @@ import java.util.HashMap;
 
 public class EpuzzleSearch extends Search {
 
-    private int serNum;
-    private int thisNum;
-    private HashMap<Integer,Integer> puzzleMap =
-            new HashMap<Integer,Integer>();
+    private int[] puzzleList;
 
     //constructor
-    public EpuzzleSearch(int sn, int tn){
-        serNum = sn;
-        thisNum = tn;
+    public EpuzzleSearch(int[] arr){
+        puzzleList = arr;
     }
 
-    public EpuzzleSearch(int[] thisNumArr){
-        for (int i = 0; i < thisNumArr.length; i++) {
-            puzzleMap.put(i,thisNumArr[i]);
+    public int[] getPuzzleList() {
+        return puzzleList;
+    }
+
+    public int getZero(int[] arr) {
+        int serNum = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i] == 0) {
+                serNum = i;
+                break;
+            }
         }
-    }
-
-    public int getSerNum() {
         return serNum;
-    }
-
-    public int getThisNum() {
-        return thisNum;
-    }
-
-    public HashMap<Integer, Integer> getEPuzzleList() {
-        return puzzleMap;
-    }
-
-
-
-    public ArrayList<Integer> transfer(int sur1, int sur2) {
-        HashMap<Integer,Integer> list = puzzleMap;
-        ArrayList<Integer> arr = new ArrayList<Integer>();
-        int tile1 = list.get(sur1);
-        int tile2 = list.get(sur2);
-        list.replace(sur1,tile2);
-        list.replace(sur2,tile1);
-
-        for (int x : list.keySet()){
-            arr.add(x);
-        }
-
-
-        return arr;
-    }
-
-    @Override
-    public String toString() {
-        return "EpuzzleSearch{" +
-                "serNum=" + serNum +
-                ", thisNum=" + thisNum +
-                ", puzzleMap=" + puzzleMap +
-                '}';
     }
 
     //    @Override
