@@ -4,22 +4,17 @@ import java.util.HashMap;
 public class EpuzzleSearch extends Search {
 
     private int[] puzzleList;
-    private int[] goal;
+
 
 
 
     //constructor
-    public EpuzzleSearch(int[] arr,int[] g){
+    public EpuzzleSearch(int[] arr){
         puzzleList = arr;
-        goal = g;
     }
 
     public int[] getPuzzleList() {
         return puzzleList;
-    }
-
-    public int[] getGOAL() {
-        return goal;
     }
 
     public int getPuzzIndex(int serNum){
