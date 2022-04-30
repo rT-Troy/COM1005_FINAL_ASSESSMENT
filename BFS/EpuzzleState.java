@@ -59,6 +59,17 @@ public class EpuzzleState extends SearchState{
         return countNum;
     }
 
+    public int getSerNum(int[] list){
+        int s = -1;
+        for (int i = 0; i < list.length; i++) {
+            if (list[i]==0){
+                s = i;
+                break;
+            }
+        }
+        return s;
+    }
+
 
 
 
@@ -66,41 +77,42 @@ public class EpuzzleState extends SearchState{
     ArrayList<SearchState> getSuccessors(Search searcher) {
         ArrayList<EpuzzleState> epslist = new ArrayList<EpuzzleState>();
         ArrayList<SearchState> sslist = new ArrayList<SearchState>();
-        int i = counter();
+//        int i = counter();
+        int sur = getSerNum(ePuzzleList);
 
 //        for (int i = 0; i < getePuzzleList().length; i++) {
 //            if(((EpuzzleSearch) searcher).getPuzzIndex(i) != i+1 ) {
-        if (i == 0) {
-            epslist.add(new EpuzzleState(new int[]{((EpuzzleSearch) searcher).getPuzzleList()[1], getePuzzleList()[0], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
+        if (sur == 0) {
+            epslist.add(new EpuzzleState(new int[]{getePuzzleList()[1], getePuzzleList()[0], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[3], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[0], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
-        } else if (i == 1) {
+        } else if (sur == 1) {
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[1], getePuzzleList()[0], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[2], getePuzzleList()[1], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[4], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[1], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
-        } else if (i == 2) {
+        } else if (sur == 2) {
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[2], getePuzzleList()[1], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[5], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[2], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
-        } else if (i == 3) {
+        } else if (sur == 3) {
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[3], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[0], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[4], getePuzzleList()[3], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[6], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[3], getePuzzleList()[7], getePuzzleList()[8]}));
-        } else if (i == 4) {
+        } else if (sur == 4) {
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[4], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[1], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[4], getePuzzleList()[3], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[5], getePuzzleList()[4], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[7], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[4], getePuzzleList()[8]}));
-        } else if (i == 5) {
+        } else if (sur == 5) {
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[5], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[2], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[5], getePuzzleList()[4], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[8], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[5]}));
-        } else if (i == 6) {
+        } else if (sur == 6) {
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[6], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[3], getePuzzleList()[7], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[7], getePuzzleList()[6], getePuzzleList()[8]}));
-        } else if (i == 7) {
+        } else if (sur == 7) {
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[7], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[4], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[7], getePuzzleList()[6], getePuzzleList()[8]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[8], getePuzzleList()[7]}));
-        } else if (i == 8) {
+        } else if (sur == 8) {
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[8], getePuzzleList()[6], getePuzzleList()[7], getePuzzleList()[5]}));
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[8], getePuzzleList()[7]}));
         }
