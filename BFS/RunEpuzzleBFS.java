@@ -1,33 +1,17 @@
-import java.util.HashMap;
-
 public class RunEpuzzleBFS {
 
     public static void main(String[] args) {
 
         int[] puzzleArr1 = {1,0,3,4,2,6,7,5,8};
+        int[] puzzleArr2 = {4,1,3,7,2,5,0,8,6};
+        int[] puzzleArr3 = {2,3,6,1,5,8,4,7,0};
         final int[] TARGET = {1,2,3,4,5,6,7,8,0};
+
         EpuzzleSearch searcher = new EpuzzleSearch(puzzleArr1,TARGET);
-        SearchState initState = (SearchState) new EpuzzleState(searcher.getPuzzleList());
-        String resb = searcher.runSearch(initState, "breadthFirst");
-        System.out.println(resb);
+        SearchState initState = new EpuzzleState(searcher.getPuzzleList());
 
-//        System.out.println(searcher1.getEPuzzleList());
-//        System.out.println(initState.getSerValue());
-//        System.out.println(initState.getThisValue());
+        String run = searcher.runSearch(initState, "breadthFirst");
+        System.out.println(run);
 
-//        String resb = searcher.runSearch(initState, "breadthFirst");
-//        String resd = searcher.runSearch(initState, "depthFirst");
-//        System.out.println(resb);
     }
 }
-
-
-
-
-
-
-//        EpuzzGen epg = new EpuzzGen(12345);
-//        int[][] puzzleGen = epg.puzzGen(6);
-//        EpuzzleSearch searcher = new EpuzzleSearch(puzzleGen);
-//        //System.out.println(searcher.getHashList());
-//        SearchState initState = new EpuzzleState();

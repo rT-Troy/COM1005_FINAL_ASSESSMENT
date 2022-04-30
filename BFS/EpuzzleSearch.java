@@ -1,19 +1,15 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class EpuzzleSearch extends Search {
 
     private int[] puzzleList;
-    private int[] target;
+    private final int[] TARGET;
 
-    /**
-     * Constructor
+    /** Constructor
      * @param arr the array of tile content
      * @param goal the array of target
      */
     public EpuzzleSearch(int[] arr, int[] goal){
         puzzleList = arr;
-        target = goal;
+        TARGET = goal;
     }
 
     /**
@@ -24,7 +20,11 @@ public class EpuzzleSearch extends Search {
         return puzzleList;
     }
 
+    /**
+     * accessor for the target
+     * @return the array of target
+     */
     public int[] getTarget() {
-        return target;
+        return TARGET;
     }
 }

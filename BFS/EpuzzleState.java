@@ -1,14 +1,11 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 
 public class EpuzzleState extends SearchState{
 
     private int[] ePuzzleList;
 
-    /**
+    /** Constructor
      * EpuzzleState
      * @param epList puzzle list for state
      */
@@ -41,7 +38,6 @@ public class EpuzzleState extends SearchState{
      */
     ArrayList<SearchState> getSuccessors(Search searcher) {
         ArrayList<EpuzzleState> epslist = new ArrayList<EpuzzleState>();
-        ArrayList<SearchState> sslist = new ArrayList<SearchState>();
         int ser = getSerNum(ePuzzleList);
         //use different slide way according to the serial number of different space
         if (ser == 0) {
@@ -79,10 +75,7 @@ public class EpuzzleState extends SearchState{
             epslist.add(new EpuzzleState(new int[]{getePuzzleList()[0], getePuzzleList()[1], getePuzzleList()[2], getePuzzleList()[3], getePuzzleList()[4], getePuzzleList()[5], getePuzzleList()[6], getePuzzleList()[8], getePuzzleList()[7]}));
         }
 
-        for(EpuzzleState es : epslist){
-            sslist.add((SearchState) es);
-        }
-        return sslist;
+        return new ArrayList<SearchState>(epslist);
     }
 
     @Override
@@ -111,17 +104,6 @@ public class EpuzzleState extends SearchState{
         return s;
     }
 
-    /**
-     * transfer
-     * @param list the array
-     * @return the array of successors
-     */
-    public int[] transfer(int serNum, int content, int[] list){
-        int[] li = list;
-
-        return null;
-    }
-
     @Override
     /**
      * toString
@@ -131,11 +113,11 @@ public class EpuzzleState extends SearchState{
         sb.append("\r\n");
         for (int i = 0; i < 9; i++) {
             sb.append(getePuzzleList()[i]);
+            sb.append("\t");
             if ((i+1)%3==0){
                 sb.append("\r\n");
             }
         }
-        String st = sb.toString();
-        return st;
+        return sb.toString();
     }
 }
