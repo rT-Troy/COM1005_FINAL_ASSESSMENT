@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
-public class EpuzzleSearch {
+public class EpuzzleSearch extends Search{
 
-    private final int[][] TARGET;
     private int[][] ePuzzleList;
+    private final int[][] TARGET;
 //    private HashMap<Integer,Integer> ePuzzleList = new HashMap<Integer,Integer>();
 
 
