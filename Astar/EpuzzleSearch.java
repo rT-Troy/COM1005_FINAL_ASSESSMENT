@@ -2,20 +2,22 @@ import java.util.HashMap;
 
 public class EpuzzleSearch {
 
-    private HashMap<Integer,Integer> ePuzzleList = new HashMap<Integer,Integer>();
-    //constructor
+    private final int[][] TARGET;
+    private int[][] ePuzzleList;
+//    private HashMap<Integer,Integer> ePuzzleList = new HashMap<Integer,Integer>();
 
-    public EpuzzleSearch(int[][] pg) {
-        int initKey = 0;
-        for (int i = 0; i < pg.length; i++) {
-            for (int j = 0; j < pg[i].length; j++) {
-                ePuzzleList.put(initKey, pg[i][j]);
-                initKey++;
-            }
-        }
+
+    //constructor
+    public EpuzzleSearch(int[][] pg, int[][] goal) {
+        ePuzzleList = pg;
+        TARGET = goal;
     }
 
-    public HashMap<Integer, Integer> getePuzzleList() {
+    public int[][] getePuzzleList() {
         return ePuzzleList;
+    }
+
+    public int[][] getTARGET() {
+        return TARGET;
     }
 }
