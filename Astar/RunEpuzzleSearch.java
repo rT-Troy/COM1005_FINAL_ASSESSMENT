@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class RunEpuzzleSearch {
 
     public static void main(String[] args) {
@@ -7,7 +5,7 @@ public class RunEpuzzleSearch {
         EpuzzGen epg = new EpuzzGen(12345);
         int[][] puzzleGen = epg.puzzGen(6);
         EpuzzleSearch searcher = new EpuzzleSearch(puzzleGen,GOAL);
-        SearchState initState = (SearchState) new EpuzzleState(searcher.getePuzzleList(),0,0, "Hamming");
+        SearchState initState = new EpuzzleState(searcher.getPuzzleList(),0,0, "Hamming");
 //        System.out.println(Arrays.deepToString(searcher.getePuzzleList()));
         String res_astar = searcher.runSearch(initState, "AStar");
         System.out.println(res_astar);
