@@ -7,7 +7,7 @@ public class EpuzzleState extends SearchState{
 
     /** Constructor
      * EpuzzleState
-     * @param epList puzzle list for state
+     * @param epList - array of puzzle state
      */
     public EpuzzleState(int[] epList){
         ePuzzleList = epList;
@@ -15,7 +15,7 @@ public class EpuzzleState extends SearchState{
 
     /**
      * getePuzzleList
-     * @return the array of state
+     * @return the array of puzzle state
      */
     public int[] getePuzzleList() {
         return ePuzzleList;
@@ -23,7 +23,7 @@ public class EpuzzleState extends SearchState{
 
     @Override
     /**
-     * goalPredicate
+     * goalPredicate- judge if the current state equals to the goal
      * @param searcher - the current search
      */
     boolean goalPredicate(Search searcher) {
@@ -39,7 +39,7 @@ public class EpuzzleState extends SearchState{
     ArrayList<SearchState> getSuccessors(Search searcher) {
         ArrayList<EpuzzleState> epslist = new ArrayList<EpuzzleState>();
         int ser = getSerNum(ePuzzleList);
-        //use different slide way according to the serial number of different space
+        //use different slide way according to the serial number of different space(0)
         if (ser == 0) {
             epslist.add(new EpuzzleState(new int[]{ePuzzleList[1], ePuzzleList[0], ePuzzleList[2], ePuzzleList[3], ePuzzleList[4], ePuzzleList[5], ePuzzleList[6], ePuzzleList[7], ePuzzleList[8]}));
             epslist.add(new EpuzzleState(new int[]{ePuzzleList[3], ePuzzleList[1], ePuzzleList[2], ePuzzleList[0], ePuzzleList[4], ePuzzleList[5], ePuzzleList[6], ePuzzleList[7], ePuzzleList[8]}));
@@ -81,7 +81,7 @@ public class EpuzzleState extends SearchState{
     @Override
     /**
      * sameState
-     * @param n2 the given state
+     * @param n2 - the given state
      */
     boolean sameState(SearchState n2) {
         EpuzzleState eqs = (EpuzzleState) n2;
@@ -89,8 +89,8 @@ public class EpuzzleState extends SearchState{
     }
 
     /**
-     * getSerNum
-     * @param list the array
+     * getSerNum - get the serial number that determine the direction
+     * @param list - the given array
      * @return the serial number of space(0)
      */
     public int getSerNum(int[] list){
