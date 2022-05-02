@@ -120,7 +120,7 @@ public class EpuzzleState extends SearchState{
                 }
             }
         }
-        return count;
+        return 9-count;
     }
 
 
