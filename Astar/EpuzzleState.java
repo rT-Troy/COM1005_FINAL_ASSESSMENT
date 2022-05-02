@@ -28,7 +28,7 @@ public class EpuzzleState extends SearchState{
         EpuzzleSearch esearcher = (EpuzzleSearch) searcher;
         ArrayList<EpuzzleState> epslist = new ArrayList<EpuzzleState>();
         ArrayList<SearchState> sslist = new ArrayList<SearchState>();
-        int[] serArr = getSerNum(esearcher.getPuzzleList());
+        int[] serArr = getSerNum();
         localCost++;
         if (esearcher.getMETHOD() == "Hamming"){
             estRemCost = hamming(esearcher);
@@ -38,45 +38,48 @@ public class EpuzzleState extends SearchState{
 
         if (serArr[0] == 0) {
             if (serArr[1] == 0){
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][1], ePuzzleList[0][0], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[1][3], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[0][0], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][1], ePuzzleList[0][0], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[1][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[0][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
             } else if (serArr[1] == 1) {
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][1], ePuzzleList[0][0], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][2], ePuzzleList[0][1]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[1][4], ePuzzleList[1][2]}, {ePuzzleList[1][3], ePuzzleList[0][1], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][1], ePuzzleList[0][0], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][2], ePuzzleList[0][1]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[1][0], ePuzzleList[0][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
             } else if (serArr[1] == 2) {
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][2], ePuzzleList[0][1]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[1][5]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[0][2]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][2], ePuzzleList[0][1]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[1][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[0][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
             }
         } else if (serArr[0] == 1) {
             if (serArr[1] == 0) {
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[1][3], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[0][0], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][4], ePuzzleList[1][3], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[2][6], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[1][3], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[1][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[0][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][1], ePuzzleList[1][0], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[2][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[1][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
             } else if (serArr[1] == 1) {
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[1][4], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[0][1], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][4], ePuzzleList[1][3], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][5], ePuzzleList[1][4]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[2][7], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[1][4], ePuzzleList[2][8]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[1][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[0][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][1], ePuzzleList[1][0], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][2], ePuzzleList[1][1]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[2][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[1][1], ePuzzleList[2][2]}},localCost,estRemCost));
             } else if (serArr[1] == 2) {
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[1][5]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[0][2]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][5], ePuzzleList[1][4]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[2][8]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[1][5]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[1][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[0][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][2], ePuzzleList[1][1]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[2][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[1][2]}},localCost,estRemCost));
             }
         } else if (serArr[0] == 2) {
             if (serArr[1] == 0) {
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[2][6], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[1][3], ePuzzleList[2][7], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][7], ePuzzleList[2][6], ePuzzleList[2][8]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[2][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[1][0], ePuzzleList[2][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][1], ePuzzleList[2][0], ePuzzleList[2][2]}},localCost,estRemCost));
             } else if (serArr[1] == 1) {
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[2][7], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[1][4], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][7], ePuzzleList[2][6], ePuzzleList[2][8]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][8], ePuzzleList[2][7]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[2][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[1][1], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][1], ePuzzleList[2][0], ePuzzleList[2][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][2], ePuzzleList[2][1]}},localCost,estRemCost));
             } else if (serArr[1] == 2) {
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[2][8]}, {ePuzzleList[2][6], ePuzzleList[2][7], ePuzzleList[1][5]}},localCost,estRemCost));
-                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][3], ePuzzleList[1][4], ePuzzleList[1][5]}, {ePuzzleList[2][6], ePuzzleList[2][8], ePuzzleList[2][7]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[2][2]}, {ePuzzleList[2][0], ePuzzleList[2][1], ePuzzleList[1][2]}},localCost,estRemCost));
+                epslist.add(new EpuzzleState(new int[][]{{ePuzzleList[0][0], ePuzzleList[0][1], ePuzzleList[0][2]}, {ePuzzleList[1][0], ePuzzleList[1][1], ePuzzleList[1][2]}, {ePuzzleList[2][0], ePuzzleList[2][2], ePuzzleList[2][1]}},localCost,estRemCost));
             }
         }
-        return new ArrayList<SearchState>(epslist);
+        for (EpuzzleState li : epslist) {
+            sslist.add(li);
+        }
+        return sslist;
     }
 
     @Override
@@ -85,12 +88,11 @@ public class EpuzzleState extends SearchState{
         return (Arrays.deepEquals(ePuzzleList,ss2.getePuzzleList()));
     }
 
-    public int[] getSerNum(int[][] list){
-        int[] arr = new int[1];
-
-        for (int i = 0; i < list.length; i++) {
-            for (int j = 0; j < list[i].length; j++) {
-                if (list[i][j]==0){
+    public int[] getSerNum(){
+        int[] arr = new int[2];
+        for (int i = 0; i < ePuzzleList.length; i++) {
+            for (int j = 0; j < ePuzzleList[i].length; j++) {
+                if (ePuzzleList[i][j]==0){
                     arr[0] = i;
                     arr[1] = j;
                     break;
@@ -114,14 +116,20 @@ public class EpuzzleState extends SearchState{
         return count;
     }
 
+
     public int manhattan(EpuzzleSearch searcher){
         int[][] arr = searcher.getPuzzleList();
         int x, y;
+        int count = 0;
         for (int i = 0; i < arr.length; i++) {
-
+            for (int j = 0; j < arr[i].length; j++) {
+                x = (arr[i][j]-1)%3;
+                y = (arr[i][j]-1-x)/3;
+                count = count + Math.abs(y-i) + Math.abs(x-j);
+            }
         }
 
-        return 0;
+        return count;
     }
 
     @Override
