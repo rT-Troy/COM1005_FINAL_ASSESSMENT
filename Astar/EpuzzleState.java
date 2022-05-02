@@ -124,4 +124,17 @@ public class EpuzzleState extends SearchState{
         return 0;
     }
 
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("\r\n");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                sb.append(ePuzzleList[i][j]);
+                sb.append("\t");
+            }
+                sb.append("\r\n");
+        }
+        return sb.toString();
+    }
 }
