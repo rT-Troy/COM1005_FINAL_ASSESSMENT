@@ -1,3 +1,11 @@
+/** EpuzzleState.java
+ * State in a 8-puzzle search
+ * Version for A* and branch and bound
+ * COM1005 - (Bsc)Computer Science
+ * Jun Zhang (jzhang213@sheffield.ac.uk)
+ * 4 May 2022 Version
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;

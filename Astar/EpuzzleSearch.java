@@ -1,3 +1,9 @@
+/** EpuzzleSearch.java
+ * COM1005 - (Bsc)Computer Science
+ * Jun Zhang (jzhang213@sheffield.ac.uk)
+ * 4 May 2022 Version
+ */
+
 public class EpuzzleSearch extends Search{
     private int[][] puzzleList;
     private final int[][] TARGET;

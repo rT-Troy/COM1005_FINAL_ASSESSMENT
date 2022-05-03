@@ -1,3 +1,10 @@
+/** RunEpuzzleBFS.java
+ * run the 8-puzzle
+ * COM1005 - (Bsc)Computer Science
+ * Jun Zhang (jzhang213@sheffield.ac.uk)
+ * 4 May 2022 Version
+ */
+
 public class RunEpuzzleBFS {
 
     public static void main(String[] args) {
