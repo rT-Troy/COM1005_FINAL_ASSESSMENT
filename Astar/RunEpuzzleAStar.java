@@ -4,6 +4,7 @@
  * Jun Zhang (jzhang213@sheffield.ac.uk)
  * 4 May 2022 Version
  */
+package Astar;
 
 public class RunEpuzzleAStar {
 
@@ -12,15 +13,15 @@ public class RunEpuzzleAStar {
         EpuzzGen epg = new EpuzzGen(12345);
         int[][] puzzleGen = epg.puzzGen(6);
 
-        //could change the method to String "Manhattan"
-        EpuzzleSearch searcher = new EpuzzleSearch(puzzleGen,GOAL, "Hamming");
+        //could change the method to String "Hamming" or "Manhattan"
+        EpuzzleSearch searcher = new EpuzzleSearch(puzzleGen,GOAL, "Manhattan");
         SearchState initState = new EpuzzleState(searcher.getPuzzleList(),0,0);
 
         String res_astar = searcher.runSearch(initState, "AStar");
         System.out.println(res_astar);
 
-//        String res_bb = searcher.runSearch(initState, "branchAndBound");
-//        System.out.println(res_bb);
+//        String res_bnb = searcher.runSearch(initState, "branchAndBound");
+//        System.out.println(res_bnb);
 
     }
 }

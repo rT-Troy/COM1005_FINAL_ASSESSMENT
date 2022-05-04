@@ -1,16 +1,16 @@
 /** EpuzzleState.java
- * State in a 8-puzzle search
+ * State in an 8-puzzle search
  * Version for A* and branch and bound
  * COM1005 - (Bsc)Computer Science
  * Jun Zhang (jzhang213@sheffield.ac.uk)
  * 4 May 2022 Version
  */
-
+package Astar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class EpuzzleState extends SearchState{
+public class EpuzzleState extends SearchState {
 
 
     private int[][] ePuzzleList;
@@ -180,9 +180,6 @@ public class EpuzzleState extends SearchState{
     }
 
     @Override
-    /**
-     * toString
-     */
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("\r\n");

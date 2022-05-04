@@ -3,7 +3,7 @@
  * Jun Zhang (jzhang213@sheffield.ac.uk)
  * 4 May 2022 Version
  */
-
+package BFS;
 public class EpuzzleSearch extends Search {
 
     private int[] puzzleList;

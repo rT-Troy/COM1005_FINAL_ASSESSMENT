@@ -3,8 +3,9 @@
  * Jun Zhang (jzhang213@sheffield.ac.uk)
  * 4 May 2022 Version
  */
+package Astar;
 
-public class EpuzzleSearch extends Search{
+public class EpuzzleSearch extends Search {
     private int[][] puzzleList;
     private final int[][] TARGET;
     private final String METHOD;

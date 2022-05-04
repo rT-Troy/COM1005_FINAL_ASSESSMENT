@@ -1,10 +1,11 @@
-/** State in a 8-puzzle search
+/** EpuzzleState.java
+ * State in a 8-puzzle search
  * Version for Breadth and breadth-first and depth-first
  * COM1005 - (Bsc)Computer Science
  * Jun Zhang (jzhang213@sheffield.ac.uk)
  * 4 May 2022 Version
  */
-
+package BFS;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -19,7 +20,6 @@ public class EpuzzleState extends SearchState{
     public EpuzzleState(int[] epList){
         ePuzzleList = epList;
     }
-
     /**
      * getePuzzleList
      * @return the array of puzzle state
@@ -27,7 +27,6 @@ public class EpuzzleState extends SearchState{
     public int[] getePuzzleList() {
         return ePuzzleList;
     }
-
     @Override
     /**
      * goalPredicate- judge if the current state equals to the goal
@@ -112,9 +111,6 @@ public class EpuzzleState extends SearchState{
     }
 
     @Override
-    /**
-     * toString
-     */
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("\r\n");
